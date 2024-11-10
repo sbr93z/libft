@@ -6,7 +6,7 @@
 /*   By: sferrad <sferrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:00:13 by sferrad           #+#    #+#             */
-/*   Updated: 2024/11/09 16:32:02 by sferrad          ###   ########.fr       */
+/*   Updated: 2024/11/10 10:43:38 by sferrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-	unsigned char *p;
-	p = (unsigned char*)s;
+	size_t			i;
+	unsigned char	*p;
+
+	p = (unsigned char *) s;
 	i = 0;
 	while (i < n)
 	{

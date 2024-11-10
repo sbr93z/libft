@@ -6,7 +6,7 @@
 /*   By: sferrad <sferrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:23:33 by sferrad           #+#    #+#             */
-/*   Updated: 2024/11/09 17:28:39 by sferrad          ###   ########.fr       */
+/*   Updated: 2024/11/10 15:31:09 by sferrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,4 @@ int main()
 	char *src = "salut";
 	void *dest;
 	printf("%s\n", ft_memmove(dest, src, 5));
-}*/
+}*/	

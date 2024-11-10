@@ -6,12 +6,14 @@
 #    By: sferrad <sferrad@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/09 10:06:51 by sferrad           #+#    #+#              #
-#    Updated: 2024/11/09 16:47:38 by sferrad          ###   ########.fr        #
+#    Updated: 2024/11/10 16:08:06 by sferrad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
-SRCS	= 	ft_isalnum.c ft_isalpha.c ft_isdigit.c ft_bzero.c ft_isascii.c ft_isprint.c ft_memcpy.c ft_memset.c ft_strlen.c
+SRCS	= 	ft_isalnum.c ft_isalpha.c ft_isdigit.c ft_bzero.c ft_isascii.c ft_isprint.c\
+			 ft_memcpy.c ft_memset.c ft_strlen.c ft_atoi.c ft_strncmp.c ft_strnstr.c\
+			ft_strchr.c ft_strrchr.c ft_strdup.c ft_tolower.c ft_toupper.c
 OBJS	= $(SRCS:.c=.o)
 
 CC	= cc

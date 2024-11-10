@@ -6,13 +6,13 @@
 /*   By: sferrad <sferrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:06:46 by sferrad           #+#    #+#             */
-/*   Updated: 2024/11/09 16:31:47 by sferrad          ###   ########.fr       */
+/*   Updated: 2024/11/10 10:41:17 by sferrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int	c)
+int	ft_isprint(int c)
 {
 	if (c >= 33 && c <= 126)
 		return (1);

@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sferrad <sferrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 14:10:08 by sferrad           #+#    #+#             */
-/*   Updated: 2024/11/15 16:21:05 by sferrad          ###   ########.fr       */
+/*   Created: 2024/11/19 20:26:22 by sferrad           #+#    #+#             */
+/*   Updated: 2024/11/19 20:40:11 by sferrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int				j;
-	char			*pt;
-	size_t			i;
+	t_list	*tmp;
+	t_list	*deltmp;
 
-	i = 0;
-	pt = 0;
-	if (little[i] == '\0')
-		return ((char *)big);
-	while (big[i] != '\0' && i < len)
+	if (!lst)
+		return ;
+	tmp = *lst;
+	while (tmp)
 	{
-		if (big[i] == little[0])
-		{
-			pt = (char *)big + i;
-			j = 0;
-			while (big[i + j] == little[j] && i + j < len)
-			{
-				if (little[j + 1] == '\0')
-					return (pt);
-				j++;
-			}
-			pt = 0;
-		}
-		i++;
+		deltmp = tmp;
+		tmp = tmp->next;
+		ft_lstdelone(deltmp, del);
 	}
-	return (NULL);
+	*lst = NULL;
 }

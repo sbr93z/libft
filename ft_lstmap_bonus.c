@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sferrad <sferrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 14:10:08 by sferrad           #+#    #+#             */
-/*   Updated: 2024/11/15 16:21:05 by sferrad          ###   ########.fr       */
+/*   Created: 2024/11/19 21:10:15 by sferrad           #+#    #+#             */
+/*   Updated: 2024/11/19 21:43:36 by sferrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int				j;
-	char			*pt;
-	size_t			i;
+	t_list	*new_lst;
+	t_list	*content;
+	void	*new_cont;
 
-	i = 0;
-	pt = 0;
-	if (little[i] == '\0')
-		return ((char *)big);
-	while (big[i] != '\0' && i < len)
+	if (!lst || !f || !del)
+		return (NULL);
+	new_lst = NULL;
+	while (lst)
 	{
-		if (big[i] == little[0])
+		new_cont = (*f)(lst->content);
+		content = ft_lstnew(new_cont);
+		if (!content)
 		{
-			pt = (char *)big + i;
-			j = 0;
-			while (big[i + j] == little[j] && i + j < len)
-			{
-				if (little[j + 1] == '\0')
-					return (pt);
-				j++;
-			}
-			pt = 0;
+			del(new_cont);
+			ft_lstclear(&new_lst, del);
+			return (NULL);
 		}
-		i++;
+		ft_lstadd_back(&new_lst, content);
+		lst = lst->next;
 	}
-	return (NULL);
+	return (new_lst);
 }

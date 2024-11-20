@@ -6,27 +6,26 @@
 /*   By: sferrad <sferrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:23:33 by sferrad           #+#    #+#             */
-/*   Updated: 2024/11/10 15:31:09 by sferrad          ###   ########.fr       */
+/*   Updated: 2024/11/12 21:57:03 by sferrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include "libft.h"
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	void* temp;
-	if (!dest)
-		return (NULL);
-	while (i < n)
+	size_t	i;
+
+	i = n;
+	if (src < dest)
 	{
-		temp = ft_memcpy(temp, src, n);
-		dest = ft_memcpy(dest, temp, n);
+		while (i > 0)
+		{
+			i--;
+			((char *)dest)[i] = ((const char *)src)[i];
+		}
 	}
+	else
+		ft_memcpy(dest, src, n);
 	return (dest);
 }
-int main()
-{
-	char *src = "salut";
-	void *dest;
-	printf("%s\n", ft_memmove(dest, src, 5));
-}*/	

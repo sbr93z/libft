@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sferrad <sferrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 14:10:08 by sferrad           #+#    #+#             */
-/*   Updated: 2024/11/15 16:21:05 by sferrad          ###   ########.fr       */
+/*   Created: 2024/11/10 17:37:21 by sferrad           #+#    #+#             */
+/*   Updated: 2024/11/15 16:16:42 by sferrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int				j;
-	char			*pt;
-	size_t			i;
+	size_t	i;
+	size_t	j;
+	size_t	dest_length;
+	size_t	src_length;
 
+	src_length = ft_strlen(src);
+	dest_length = ft_strlen(dst);
+	j = dest_length;
 	i = 0;
-	pt = 0;
-	if (little[i] == '\0')
-		return ((char *)big);
-	while (big[i] != '\0' && i < len)
+	if (dest_length < size - 1 && size > 0)
 	{
-		if (big[i] == little[0])
+		while (src[i] && dest_length + i < size - 1)
 		{
-			pt = (char *)big + i;
-			j = 0;
-			while (big[i + j] == little[j] && i + j < len)
-			{
-				if (little[j + 1] == '\0')
-					return (pt);
-				j++;
-			}
-			pt = 0;
+			dst[j] = src[i];
+			j++;
+			i++;
 		}
-		i++;
+		dst[j] = 0;
 	}
-	return (NULL);
+	if (dest_length >= size)
+		dest_length = size;
+	return (dest_length + src_length);
 }

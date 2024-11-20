@@ -6,7 +6,7 @@
 /*   By: sferrad <sferrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 11:27:18 by sferrad           #+#    #+#             */
-/*   Updated: 2024/11/10 13:23:39 by sferrad          ###   ########.fr       */
+/*   Updated: 2024/11/18 13:42:19 by sferrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,13 @@ char	*ft_strchr(const char *s, int c)
 
 	p = (char *) s;
 	i = 0;
-	if (!s)
-		return (NULL);
 	while (p[i])
 	{
-		if (p[i] == c)
+		if (p[i] == (unsigned char)c)
 			return (&p[i]);
 		i++;
 	}
-	if (p[i] == c)
+	if (p[i] == (unsigned char)c)
 		return (&p[i]);
 	return (NULL);
 }

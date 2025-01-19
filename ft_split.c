@@ -6,7 +6,7 @@
 /*   By: sferrad <sferrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:14:28 by sferrad           #+#    #+#             */
-/*   Updated: 2024/11/20 15:48:14 by sferrad          ###   ########.fr       */
+/*   Updated: 2025/01/19 17:46:00 by sferrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,7 @@ static int	ft_fill(char **result, const char *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	int		i;
-	int		j;
 
-	i = 0;
-	j = 0;
 	if (!s)
 		return (NULL);
 	result = malloc((ft_countword(s, c) + 1) * sizeof(char *));
